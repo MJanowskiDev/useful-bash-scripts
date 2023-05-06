@@ -1,12 +1,14 @@
 # Useful Bash Scripts
 
 A collection of handy Bash scripts for developers to simplify tasks and improve productivity. The goal is to provide a useful toolkit that saves time and makes development tasks more efficient.
+## List of Scripts
 
+1. **kill_on.sh:** Terminates the process listening on a specified port (given as an argument).
 ## Usage
 
 1. **Directly called:** Navigate to the script directory and run with `./script_name.sh`.
    
-   **Note:** To use a script function, like the `kill_on` function, source the script (`source kill_on.sh` or `. kill_on.sh`) in the current shell session and call the function with the required arguments (e.g., `kill_on 8080`).
+   **Note:** To use a script function, source the script (`source kill_on.sh`) in the current shell session.
    
 2. **Creating Aliases (for script functions):** Create an alias in the shell configuration file.
 
