@@ -1,4 +1,4 @@
-# Terminates the process listening on a specified port (given as an argument)
+# Terminates the processes listening on a specified port (given as an argument)
 function kill_on() {
     if [ -z "$1" ]; then
         echo "Please provide a port number as an argument"
@@ -6,12 +6,15 @@ function kill_on() {
     fi
 
     port=$1
-    pid=$(sudo lsof -t -i :"${port}")
+    pids=$(sudo lsof -t -i :"${port}")
 
-    if [ -z "$pid" ]; then
+    if [ -z "$pids" ]; then
         echo "No process found listening on port ${port}"
     else
-        echo "Killing process ${pid} listening on port ${port}"
-        sudo kill -9 "$pid"
+        for pid in $pids
+        do
+            echo "Killing process ${pid} listening on port ${port}"
+            sudo kill -9 "$pid"
+        done
     fi
 }
